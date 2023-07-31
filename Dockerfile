@@ -1,18 +1,12 @@
-FROM nvidia/cuda:11.8.0-base-ubuntu20.04
-
-RUN apt update
-
-RUN apt-get install -y python3-pip
-
-ENV PYTHONUNBUFFERED=1
+FROM python:3.10.8
 
 WORKDIR /placeit_sam_gen
 
+RUN apt update && apt install -y libgl1-mesa-glx
+
+ENV PYTHONUNBUFFERED=1
+
 COPY requirements.txt .
-
-RUN apt-get update && apt-get install -y git
-
-RUN apt-get update && apt-get install -y libglib2.0-0 libsm6 libxrender1 libxext6
 
 RUN pip install -r requirements.txt
 
