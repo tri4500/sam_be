@@ -20,8 +20,8 @@ class SamView(APIView):
         img = cv2.imdecode(np_arr, cv2.IMREAD_COLOR)
         # Load predictor
         torch.cuda.empty_cache()
-        checkpoint = "sam_vit_h_4b8939.pth"
-        model_type = "vit_h"
+        checkpoint = "sam_vit_b_01ec64.pth"
+        model_type = "vit_b"
         sam = sam_model_registry[model_type](checkpoint=checkpoint)
         sam.to(device='cuda')
         predictor = SamPredictor(sam)
