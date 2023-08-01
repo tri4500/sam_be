@@ -18,7 +18,7 @@ requests==2.31.0
 segment-anything @ git+https://github.com/facebookresearch/segment-anything.git@6fdee8f2727f4506cfbbe553e23b895e27956588
 sqlparse==0.4.4
 sympy==1.12
-torch==1.7.0
-torchvision==0.8.0
+torch==2.0.1
+torchvision==0.15.2
 typing_extensions==4.6.3
 urllib3==2.0.3
