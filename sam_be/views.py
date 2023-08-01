@@ -5,6 +5,7 @@ import numpy as np
 import cv2
 from segment_anything import sam_model_registry, SamPredictor
 import torch
+import gc
 
 
 class SamView(APIView):
@@ -12,6 +13,7 @@ class SamView(APIView):
         return Response("GET: Hello World!")
 
     def post(self, request):
+        gc.collect()
         blob = request.FILES.get('file')
         img_data = blob.read()
         np_arr = np.frombuffer(img_data, np.uint8)
